@@ -1,16 +1,22 @@
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
+
 jobs:
   build:
     name: Hello world action
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: ./action-a
-        with:
-          MY_NAME: "Bhawna"
+      - name: git action
+        uses: actions/checkout@v1
       - name: setup python
         uses: actions/setup-python@v2
-          with:
-            python-version: 3.8 #install the python needed
+        with:
+          python-version: 3.8 #install the python needed
       - name: execute py script # run the run.py to get the latest data
         run: |
-         python run.py
+          python run.py
