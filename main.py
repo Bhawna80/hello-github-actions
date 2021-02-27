@@ -31,7 +31,7 @@ my_var = client.get("var", id="version")
 
 for ws in my_org.workspaces:
     print(ws.name)
-    print(ws.variables.get("branch"))
+    print(ws.variables.get("ani"))
     key_list = list(ws.variables.keys())
     
     val_list = list(str(ws.variables.values()))
