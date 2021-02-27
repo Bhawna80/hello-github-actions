@@ -3,7 +3,7 @@ import requests
 import time
 import csv
 import tfc
-import TFCClient
+from tfc_client import TFCClient
 
 tfe_token = 'xJH8KojiPJa3JA.atlasv1.10cyO6tl61Dhty7zuzKUijBhwa6ZOWDrL2yQWR7kCw1YPnhHL0aDbCiwT1fJqkyhg0w'
 #client = pyterprise.Client()
