@@ -23,12 +23,14 @@ print(client)
 # Set the organization
 # org = client.set_organization(id='bhawna_tf')
 my_org = client.get("organization", id="bhawna_tf")
-variables = client.get_variables()
-print(variables)
+#variables = client.get_variables()
+#print(variables)
 #my_ws = my_org.workspace(name="my_workspace")
 # To retreive all workspaces:
 for ws in my_org.workspaces:
     print(ws.name)
+    print(ws.variables.keys())
+    #print("   -->", ", ".join(ws.variables.keys()))
     #for variabl in ws.list_variables():
         #print(variabl)
     
