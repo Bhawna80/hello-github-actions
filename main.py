@@ -30,6 +30,9 @@ my_org = client.get("organization", id="bhawna_tf")
 for ws in my_org.workspaces:
     print(ws.name)
     print(ws.variables.keys())
+    #for key1 in ws.variables
+    for i in ws.variables : 
+        print(i, ws.variables[i])
     #print("   -->", ", ".join(ws.variables.keys()))
     #for variabl in ws.list_variables():
         #print(variabl)
