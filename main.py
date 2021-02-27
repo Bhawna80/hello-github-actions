@@ -30,13 +30,13 @@ my_org = client.get("organization", id="bhawna_tf")
 for ws in my_org.workspaces:
     print(ws.name)
     key_list = list(ws.variables.keys())
-    val_list = list(ws.variables.values())
+    val_list = list(str(ws.variables.values()))
     print(key_list)
     print(val_list)
-    position = val_list.index(0)
-    print(position)
-    print(key_list[position])
-    print(list(ws.variables.keys())[list(ws.variables.values()).index(0)])
+    position = val_list[0]
+    #print(position)
+    #print(key_list[position])
+    #print(list(ws.variables.keys())[list(ws.variables.values()).index(0)])
     #print(str(ws.variables.values()))
     #for i in ws.variables.keys() : 
         #print(i, ws.variables.values[i])
