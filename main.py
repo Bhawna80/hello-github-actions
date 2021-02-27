@@ -23,7 +23,7 @@ print(client)
 # Set the organization
 # org = client.set_organization(id='bhawna_tf')
 my_org = client.get("organization", id="bhawna_tf")
-my_var = client.get("var", id="version")
+my_var = client.get("var", id="var-sTtyvUPRwQXH15gR")
 #variables = client.get_variables()
 #print(variables)
 #my_ws = my_org.workspace(name="my_workspace")
