@@ -17,12 +17,15 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-      - name: Install pyhon for github
+      - name: Install python for github
         run: |
           pip install PyGithub 
-      - name: Install pyhon for terraform
+      - name: Install python for terraform
         run: |
           pip3 install --user pyterprise
+      - name: Install python cloud client for terraform
+        run: |
+          pip install terraform-cloud-client
       - name: run python1
         run: |
           python ./main.py
