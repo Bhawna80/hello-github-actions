@@ -23,7 +23,7 @@ jobs:
       - name: Install pyhon for terraform
         run: |
           pip3 install --user pyterprise
-      - name: run python
+      - name: run python1
         run: |
           python ./main.py
       
