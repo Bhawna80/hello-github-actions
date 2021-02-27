@@ -13,8 +13,8 @@ client.init(token=tfe_token, url='https://app.terraform.io/api/v2/organizations/
 # Set the organization
 # org = client.set_organization(id='bhawna_tf')
 
-  org = client.set_organization('bhawna_tf')
-  print(org)
+org = client.set_organization('bhawna_tf')
+print(org)
 
 workspace = org.get_workspace('hello-github-actions_dev')
 print(workspace)
