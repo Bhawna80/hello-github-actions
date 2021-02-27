@@ -26,7 +26,7 @@ jobs:
       - name: Install python cloud client for terraform
         run: |
           pip install terraform-cloud-client
-      - name: Install python cloud client for terraform
+      - name: Install python tfc client for terraform
         run: |
           pip install tfc-client
       - name: run python1
