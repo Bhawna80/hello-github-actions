@@ -3,12 +3,15 @@ import requests
 import time
 import csv
 import tfc
+import TFCClient
 
 tfe_token = 'xJH8KojiPJa3JA.atlasv1.10cyO6tl61Dhty7zuzKUijBhwa6ZOWDrL2yQWR7kCw1YPnhHL0aDbCiwT1fJqkyhg0w'
 #client = pyterprise.Client()
 
-client = tfc.TerraformClient(tfe_token, "bhawna_tf", "hello-github-actions")
+#client = tfc.TerraformClient(tfe_token, "bhawna_tf", "hello-github-actions")
+client = TFCClient(token=tfe_token)
 print(client)
+
 
 # Supply your token as a parameter and the url for the terraform enterprise server.
 # If you are not self hosting, use the one provided by hashicorp.
@@ -19,6 +22,12 @@ print(client)
 
 # Set the organization
 # org = client.set_organization(id='bhawna_tf')
+my_org = client.get("organization", id="bhawna_tf")
+
+#my_ws = my_org.workspace(name="my_workspace")
+# To retreive all workspaces:
+for ws in my_org.workspaces:
+    print(ws.name)
 
 #org = client.get_organization('bhawna_tf')
 #print(org)
