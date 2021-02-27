@@ -28,9 +28,12 @@ my_var = client.get("var", id="version")
 #print(variables)
 #my_ws = my_org.workspace(name="my_workspace")
 # To retreive all workspaces:
+
 for ws in my_org.workspaces:
     print(ws.name)
+    print(ws.variables.get("branch"))
     key_list = list(ws.variables.keys())
+    
     val_list = list(str(ws.variables.values()))
     print(key_list)
     print(val_list)
