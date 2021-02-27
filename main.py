@@ -29,10 +29,17 @@ my_org = client.get("organization", id="bhawna_tf")
 # To retreive all workspaces:
 for ws in my_org.workspaces:
     print(ws.name)
-    print(ws.variables.keys())
-    print(str(ws.variables.values()))
-    for i in ws.variables.keys() : 
-        print(i, ws.variables.values[i])
+    key_list = list(ws.variables.keys())
+    val_list = list(ws.variables.values())
+    print(key_list)
+    print(val_list)
+    position = val_list.index(2)
+    print(position)
+    print(key_list[position])
+    print(list(ws.variables.keys())[list(ws.variables.values()).index(0)])
+    #print(str(ws.variables.values()))
+    #for i in ws.variables.keys() : 
+        #print(i, ws.variables.values[i])
     #print("   -->", ", ".join(ws.variables.keys()))
     #for variabl in ws.list_variables():
         #print(variabl)
