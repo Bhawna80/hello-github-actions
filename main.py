@@ -3,13 +3,12 @@ import requests
 import time
 import csv
 
-tfe_token = 'TOKENHERE'
+tfe_token = 'xJH8KojiPJa3JA.atlasv1.10cyO6tl61Dhty7zuzKUijBhwa6ZOWDrL2yQWR7kCw1YPnhHL0aDbCiwT1fJqkyhg0w'
 client = pyterprise.Client()
 
 # Supply your token as a parameter and the url for the terraform enterprise server.
 # If you are not self hosting, use the one provided by hashicorp.
-client.init(token=xJH8KojiPJa3JA.atlasv1.10cyO6tl61Dhty7zuzKUijBhwa6ZOWDrL2yQWR7kCw1YPnhHL0aDbCiwT1fJqkyhg0w, 
-url='https://app.terraform.io/api/v2/organizations/bhawma_tf/workspaces')
+client.init(token=tfe_token, url='https://app.terraform.io/api/v2/organizations/bhawma_tf/workspaces')
 
 # Set the organization
 # org = client.set_organization(id='bhawna_tf')
