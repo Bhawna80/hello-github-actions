@@ -31,9 +31,10 @@ my_org = client.get("organization", id="bhawna_tf")
 
 for ws in my_org.workspaces:
     print(ws.name)
-    my_var = client.get("ani", id=ws.variables.get("ani"))
+    #my_var = client.get("ani", id=ws.variables.get("ani"))
     print(ws.variables.get("ani"))
-    print(my_var)
+    print(ws.variables.items())
+    #print(my_var)
     key_list = list(ws.variables.keys())
     
     val_list = list(str(ws.variables.values()))
