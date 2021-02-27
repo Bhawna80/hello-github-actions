@@ -33,7 +33,7 @@ for ws in my_org.workspaces:
     val_list = list(ws.variables.values())
     print(key_list)
     print(val_list)
-    position = val_list.index(2)
+    position = val_list.index(0)
     print(position)
     print(key_list[position])
     print(list(ws.variables.keys())[list(ws.variables.values()).index(0)])
