@@ -30,7 +30,7 @@ request = requests.request("GET", tfe_url+'/api/v2/organizations/'+org_org+'/wor
 #workspace_settings_request = request.request("GET", tfe_url +'/api/v2/workspaces/'+workspace_id, headers=tfe_http_headers)
 #worspace_json=workspace_settings_request.json()
 print("post api call")
-print("1st api status:"+org_workspace_settings_request.status_code)
+print("1st api status:"+request.status_code)
 
 if "2" in str(request.status_code):
   request_text = request.text
