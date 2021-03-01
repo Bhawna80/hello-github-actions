@@ -7,9 +7,12 @@ import re
 
 necessary_inputs = ["TFE_URL","TFE_USER_TOKEN"]#,"WORKSPACE_ID"]
 
-tfe_url = os.getenv("TFE_URL", None)
+tfe_url = 'https://app.terraform.io'
+#os.getenv("TFE_URL", None)
 print(tfe_url)
-tfe_token = os.getenv("TFE_TOKEN", None)
+
+tfe_token = 'xJH8KojiPJa3JA.atlasv1.10cyO6tl61Dhty7zuzKUijBhwa6ZOWDrL2yQWR7kCw1YPnhHL0aDbCiwT1fJqkyhg0w'
+#tfe_token = os.getenv("TFE_TOKEN", None)
 print(tfe_token)
 
 #workspace_id = os.getenv("WORKSPACE_ID", None)
