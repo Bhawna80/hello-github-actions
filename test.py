@@ -6,7 +6,7 @@ import time
 import re
 
 necessary_inputs = ["TFE_URL","TFE_USER_TOKEN"]#,"WORKSPACE_ID"]
-org_list=["mydb_tf"]
+org_list=["bhawna_tf"]
 
 tfe_url = 'https://app.terraform.io'
 #os.getenv("TFE_URL", None)
@@ -22,7 +22,7 @@ print(tfe_token)
 #org_org='bhawna_tf'
 #print(org_org)
 workspace_list=""
-workspace_list2=""
+
 
 
 tfe_http_headers = {"Authorization": "Bearer "+tfe_token +"", "Content-Type": "application/vnd.api+json"}
