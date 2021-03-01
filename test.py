@@ -7,14 +7,12 @@ import re
 
 necessary_inputs = ["TFE_URL","TFE_USER_TOKEN","WORKSPACE_ID"]
 
-
-
 tfe_url = os.getenv("TFE_URL", None)
 tfe_token = os.getenv("TFE_TOKEN", None)
 workspace_id = os.getenv("WORKSPACE_ID", None)
 
 tfe_http_auth_headers = {'Authorization': 'Bearer '+tfe_token +''}
-tfe_http_auth_headers = {"Authorization": "Bearer "+tfe_token +"", "Content-Type": "application/vnd.api+json"}
+tfe_http_headers = {"Authorization": "Bearer "+tfe_token +"", "Content-Type": "application/vnd.api+json"}
 
 workspace_settings_request = request.request("GET", tfe_url +'/api/v2/workspaces/'+workspace_id, headers=tfe_http_headers)
 worspace_json=workspace_settings_request.json()
