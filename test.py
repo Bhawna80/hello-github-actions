@@ -47,15 +47,11 @@ if "2" in str(request.status_code):
 else:
   print("ERRRRROR")
 
-print("workspace_list:::")
-print(workspace_list)
+
 for workspace in range(len(workspace_list)):
-  print("inside")
-  print(workspace)
-  print(workspace_list[0])
-  print(workspace_list[1])
+ 
   print(workspace_list[workspace])
-  org_workspace_id = workspace_list[workspace].get['id']
+  org_workspace_id = workspace_list[workspace].get('id')
   print(org_workspace_id)
   print("before 2nd call")
   org_workspace_settings_request = requests.request("GET", tfe_url +'/api/v2/workspaces/'+workspace_id, headers=tfe_http_headers)
