@@ -24,7 +24,6 @@ workspace_list=""
 tfe_http_headers = {"Authorization": "Bearer "+tfe_token +"", "Content-Type": "application/vnd.api+json"}
 
 for org in range(len(org_list)):
-  print(org_list[org])
   request = requests.request("GET", tfe_url+'/api/v2/organizations/'+org_list[org]+'/workspaces',headers=tfe_http_headers)
   if "2" in str(request.status_code):
     request_text = request.text
@@ -34,10 +33,11 @@ for org in range(len(org_list)):
     jsondata=myjsonfile.read()
     obj=json.loads(jsondata)
     workspace_list=obj['data']
-    print("Workspace List is:" )
-    print(workspace_list)
+    #print("Workspace List is:" )
+    #print(workspace_list)
     for workspace in range(len(workspace_list)):
       org_workspace_id = workspace_list[workspace].get('id')
+      print("Org Name:"+org_list[org])
       print("Workspace Id: "+org_workspace_id)
       org_workspace_settings_request = requests.request("GET", tfe_url +'/api/v2/workspaces/'+org_workspace_id, headers=tfe_http_headers)
       org_workspace_json = org_workspace_settings_request.json()
@@ -46,6 +46,7 @@ for org in range(len(org_list)):
         workspace_terraform_version=org_workspace_json['data']['attributes']['terraform-version']
         print("Workspace Name: "+org_workspace_name)
         print("Workspace Terraform Version: "+workspace_terraform_version)
+        print("============================================")
       else:
         print("ERRRRROR2")
   else:
