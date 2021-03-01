@@ -38,17 +38,24 @@ if "2" in str(request.status_code):
   myjsonfile=open('data.json','r')
   jsondata=myjsonfile.read()
   obj=json.loads(jsondata)
-  worksepace_list=obj['data']
-
+  workspace_list=obj['data']
+  print(workspace_list)
+  print(len(workspace_list))
 else:
   print("ERRRRROR")
 
-#for workspace in range(len(workspace_list)):
-  #org_workspace_id = workspace_list[workspace].get["id"]
+for workspace in range(len(workspace_list)):
+  org_workspace_id = workspace_list[workspace].get["id"]
+  print("org_workspace_id: "+org_workspace_id)
+  org_workspace_settings_request = equest.request("GET", tfe_url +'/api/v2/workspaces/'+workspace_id, headers=tfe_http_headers)
+  org_workspace_json = org_workspace_settings_request.json()
   
-  
-#else:
-  #print("ERRORRRRRR")
+if "2" in str(org_workspace_settings_request.status_code):
+  org_workspace_name=org_workspace_json['data']['attributes']['name']
+  print("org_workspace_name: "+org_workspace_name)
+
+else:
+  print("ERRRRROR2")
 
 #workspace = worspace_json['data']
 
