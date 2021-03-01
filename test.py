@@ -54,7 +54,7 @@ for workspace in range(len(workspace_list)):
   org_workspace_id = workspace_list[workspace].get('id')
   print(org_workspace_id)
   print("before 2nd call")
-  org_workspace_settings_request = requests.request("GET", tfe_url +'/api/v2/workspaces/'+workspace_id, headers=tfe_http_headers)
+  org_workspace_settings_request = requests.request("GET", tfe_url +'/api/v2/workspaces/'+org_workspace_id, headers=tfe_http_headers)
   print("post call")
   org_workspace_json = org_workspace_settings_request.json()
   print(org_workspace_settings_request.status_code)
