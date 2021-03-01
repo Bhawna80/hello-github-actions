@@ -42,8 +42,7 @@ if "2" in str(request.status_code):
   jsondata=myjsonfile.read()
   obj=json.loads(jsondata)
   workspace_list=obj['data']
-  print("workspace_list :"+workspace_list)
-  #print(len(workspace_list))
+  print(workspace_list)
 else:
   print("ERRRRROR")
 
@@ -59,6 +58,3 @@ for workspace in range(len(workspace_list)):
     print("org_workspace_name: "+org_workspace_name)
   else:
     print("ERRRRROR2")
-
-#workspace = worspace_json['data']
-
