@@ -32,7 +32,7 @@ request = requests.request("GET", tfe_url+'/api/v2/organizations/'+org_org+'/wor
 print("post api call")
 print(request.status_code)
 
-workspace_list
+workspace_list=""
 
 if "2" in str(request.status_code):
   request_text = request.text
