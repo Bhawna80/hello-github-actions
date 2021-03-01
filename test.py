@@ -6,6 +6,7 @@ import time
 import re
 
 necessary_inputs = ["TFE_URL","TFE_USER_TOKEN"]#,"WORKSPACE_ID"]
+org_list=["bhawna_db","mydb_tf"]
 
 tfe_url = 'https://app.terraform.io'
 #os.getenv("TFE_URL", None)
@@ -21,22 +22,25 @@ print(tfe_token)
 org_org='bhawna_tf'
 print(org_org)
 workspace_list=""
+workspace_list2=""
+
 
 tfe_http_headers = {"Authorization": "Bearer "+tfe_token +"", "Content-Type": "application/vnd.api+json"}
 
-request = requests.request("GET", tfe_url+'/api/v2/organizations/'+org_org+'/workspaces',headers=tfe_http_headers)
-if "2" in str(request.status_code):
-  request_text = request.text
-  data = json.loads(request_text)
-  data_serialized= json.dump(data, open('data.json',"w"))
-  myjsonfile=open('data.json','r')
-  jsondata=myjsonfile.read()
-  obj=json.loads(jsondata)
-  workspace_list=obj['data']
-  print("Workspace List is:" )
-  print(workspace_list)
-else:
-  print("ERRRRROR")
+for orgs in range(len(org_list)):
+  request = requests.request("GET", tfe_url+'/api/v2/organizations/'+org_org+'/workspaces',headers=tfe_http_headers)
+  if "2" in str(request.status_code):
+    request_text = request.text
+    data = json.loads(request_text)
+    data_serialized= json.dump(data, open('data.json',"w"))
+    myjsonfile=open('data.json','r')
+    jsondata=myjsonfile.read()
+    obj=json.loads(jsondata)
+    workspace_list=obj['data']
+    print("Workspace List is:" )
+    print(workspace_list)
+  else:
+    print("ERRRRROR")
 
 
 for workspace in range(len(workspace_list)):
