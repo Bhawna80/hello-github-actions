@@ -24,12 +24,13 @@ print(org_org)
 #tfe_http_auth_headers = {'Authorization': 'Bearer '+tfe_token +''}
 
 tfe_http_headers = {"Authorization": "Bearer "+tfe_token +"", "Content-Type": "application/vnd.api+json"}
-
+print("before api call")
 request = requests.request("GET", tfe_url+'/api/v2/organizations/'+org_org+'/workspaces',headers=tfe_http_headers)
 #workspace = request.json()
 #workspace_settings_request = request.request("GET", tfe_url +'/api/v2/workspaces/'+workspace_id, headers=tfe_http_headers)
 #worspace_json=workspace_settings_request.json()
-print("before api call")
+print("post api call")
+print("1st api status:"+org_workspace_settings_request.status_code)
 
 if "2" in str(request.status_code):
   request_text = request.text
@@ -47,15 +48,18 @@ else:
 for workspace in range(len(workspace_list)):
   org_workspace_id = workspace_list[workspace].get["id"]
   print("org_workspace_id: "+org_workspace_id)
-  org_workspace_settings_request = equest.request("GET", tfe_url +'/api/v2/workspaces/'+workspace_id, headers=tfe_http_headers)
+  print("before 2nd call")
+  org_workspace_settings_request = requests.request("GET", tfe_url +'/api/v2/workspaces/'+workspace_id, headers=tfe_http_headers)
+  print("post call")
   org_workspace_json = org_workspace_settings_request.json()
-  
-if "2" in str(org_workspace_settings_request.status_code):
-  org_workspace_name=org_workspace_json['data']['attributes']['name']
+  print("2nd api status:"+org_workspace_settings_request.status_code)
+
+  if "2" in str(org_workspace_settings_request.status_code):
+    org_workspace_name=org_workspace_json['data']['attributes']['name']
   print("org_workspace_name: "+org_workspace_name)
 
-else:
-  print("ERRRRROR2")
+  else:
+    print("ERRRRROR2")
 
 #workspace = worspace_json['data']
 
