@@ -56,8 +56,7 @@ for workspace in range(len(workspace_list)):
 
   if "2" in str(org_workspace_settings_request.status_code):
     org_workspace_name=org_workspace_json['data']['attributes']['name']
-  print("org_workspace_name: "+org_workspace_name)
-
+    print("org_workspace_name: "+org_workspace_name)
   else:
     print("ERRRRROR2")
 
