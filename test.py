@@ -30,7 +30,7 @@ request = requests.request("GET", tfe_url+'/api/v2/organizations/'+org_org+'/wor
 #workspace_settings_request = request.request("GET", tfe_url +'/api/v2/workspaces/'+workspace_id, headers=tfe_http_headers)
 #worspace_json=workspace_settings_request.json()
 print("post api call")
-print("1st api status:"+request.status_code)
+print(request.status_code)
 
 if "2" in str(request.status_code):
   request_text = request.text
@@ -52,7 +52,7 @@ for workspace in range(len(workspace_list)):
   org_workspace_settings_request = requests.request("GET", tfe_url +'/api/v2/workspaces/'+workspace_id, headers=tfe_http_headers)
   print("post call")
   org_workspace_json = org_workspace_settings_request.json()
-  print("2nd api status:"+org_workspace_settings_request.status_code)
+  print(org_workspace_settings_request.status_code)
 
   if "2" in str(org_workspace_settings_request.status_code):
     org_workspace_name=org_workspace_json['data']['attributes']['name']
