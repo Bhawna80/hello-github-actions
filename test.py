@@ -43,8 +43,8 @@ else:
   #org_workspace_id = workspace_list[workspace].get["id"]
   
   
-else:
-  print("ERRORRRRRR")
+#else:
+  #print("ERRORRRRRR")
 
-workspace = worspace_json['data']
+#workspace = worspace_json['data']
 
