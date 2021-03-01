@@ -19,16 +19,17 @@ print(tfe_token)
 #workspace_id = os.getenv("WORKSPACE_ID", None)
 #print(workspace_id)
 
-org_org='bhawna_tf'
-print(org_org)
+#org_org='bhawna_tf'
+#print(org_org)
 workspace_list=""
 workspace_list2=""
 
 
 tfe_http_headers = {"Authorization": "Bearer "+tfe_token +"", "Content-Type": "application/vnd.api+json"}
 
-for orgs in range(len(org_list)):
-  request = requests.request("GET", tfe_url+'/api/v2/organizations/'+org_org+'/workspaces',headers=tfe_http_headers)
+for org in range(len(org_list)):
+  print(org_list[org])
+  request = requests.request("GET", tfe_url+'/api/v2/organizations/'+org_list[org]+'/workspaces',headers=tfe_http_headers)
   if "2" in str(request.status_code):
     request_text = request.text
     data = json.loads(request_text)
