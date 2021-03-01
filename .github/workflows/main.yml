@@ -31,7 +31,7 @@ jobs:
           pip install tfc-client
       - name: run python1
         run: |
-          python ./main.py
+          python ./test.py
       
           
         
