@@ -20,20 +20,11 @@ print(tfe_token)
 
 org_org='bhawna_tf'
 print(org_org)
-
-#tfe_http_auth_headers = {'Authorization': 'Bearer '+tfe_token +''}
-
-tfe_http_headers = {"Authorization": "Bearer "+tfe_token +"", "Content-Type": "application/vnd.api+json"}
-#print("before api call")
-request = requests.request("GET", tfe_url+'/api/v2/organizations/'+org_org+'/workspaces',headers=tfe_http_headers)
-#workspace = request.json()
-#workspace_settings_request = request.request("GET", tfe_url +'/api/v2/workspaces/'+workspace_id, headers=tfe_http_headers)
-#worspace_json=workspace_settings_request.json()
-#print("post api call")
-#print(request.status_code)
-
 workspace_list=""
 
+tfe_http_headers = {"Authorization": "Bearer "+tfe_token +"", "Content-Type": "application/vnd.api+json"}
+
+request = requests.request("GET", tfe_url+'/api/v2/organizations/'+org_org+'/workspaces',headers=tfe_http_headers)
 if "2" in str(request.status_code):
   request_text = request.text
   data = json.loads(request_text)
@@ -49,12 +40,13 @@ else:
 
 for workspace in range(len(workspace_list)):
   org_workspace_id = workspace_list[workspace].get('id')
-  print(workspace)
-  print(org_workspace_id)
+  print("Workspace Id: "+org_workspace_id)
   org_workspace_settings_request = requests.request("GET", tfe_url +'/api/v2/workspaces/'+org_workspace_id, headers=tfe_http_headers)
   org_workspace_json = org_workspace_settings_request.json()
   if "2" in str(org_workspace_settings_request.status_code):
     org_workspace_name=org_workspace_json['data']['attributes']['name']
-    print("org_workspace_name: "+org_workspace_name)
+    workspace_terraform_version=org_workspace_json['data']['attributes']['terraform-version']
+    print("Workspace Name: "+org_workspace_name)
+    print("Workspace Terraform Version: "+workspace_terraform_version)
   else:
     print("ERRRRROR2")
