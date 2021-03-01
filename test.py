@@ -6,7 +6,7 @@ import time
 import re
 
 necessary_inputs = ["TFE_URL","TFE_USER_TOKEN"]#,"WORKSPACE_ID"]
-org_list=["bhawna_tf","mydb_tf"]
+org_list=["mydb_tf"]
 
 tfe_url = 'https://app.terraform.io'
 #os.getenv("TFE_URL", None)
