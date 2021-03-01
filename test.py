@@ -50,6 +50,8 @@ else:
 print("workspace_list:::")
 print(workspace_list)
 for workspace in range(len(workspace_list)):
+  print("inside")
+  print(workspace_list[workspace])
   org_workspace_id = workspace_list[workspace].get["id"]
   print("org_workspace_id: "+org_workspace_id)
   print("before 2nd call")
