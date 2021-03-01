@@ -32,7 +32,7 @@ request = requests.request("GET", tfe_url+'/api/v2/organizations/'+org_org+'/wor
 print("before api call")
 
 if "2" in str(request.status_code):
-  request_test = request.text
+  request_text = request.text
   data = json.loads(request_text)
   data_serialized= json.dump(data, open('data.json',"w"))
   myjsonfile=open('data.json','r')
