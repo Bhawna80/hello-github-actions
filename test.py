@@ -33,7 +33,7 @@ if "2" in str(request.status_code):
   jsondata=myjsonfile.read()
   obj=json.loads(jsondata)
   workspace_list=obj['data']
-  println("Workspace List is:" )
+  print("Workspace List is:" )
   print(workspace_list)
 else:
   print("ERRRRROR")
