@@ -45,6 +45,8 @@ if "2" in str(request.status_code):
 else:
   print("ERRRRROR")
 
+print("workspace_list:::")
+print(workspace_list)
 for workspace in range(len(workspace_list)):
   org_workspace_id = workspace_list[workspace].get["id"]
   print("org_workspace_id: "+org_workspace_id)
