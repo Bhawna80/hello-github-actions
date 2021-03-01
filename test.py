@@ -16,13 +16,9 @@ tfe_token = 'xJH8KojiPJa3JA.atlasv1.10cyO6tl61Dhty7zuzKUijBhwa6ZOWDrL2yQWR7kCw1Y
 #tfe_token = os.getenv("TFE_TOKEN", None)
 print(tfe_token)
 
-#workspace_id = os.getenv("WORKSPACE_ID", None)
-#print(workspace_id)
-
 #org_org='bhawna_tf'
 #print(org_org)
 workspace_list=""
-
 
 
 tfe_http_headers = {"Authorization": "Bearer "+tfe_token +"", "Content-Type": "application/vnd.api+json"}
@@ -40,19 +36,17 @@ for org in range(len(org_list)):
     workspace_list=obj['data']
     print("Workspace List is:" )
     print(workspace_list)
+    for workspace in range(len(workspace_list)):
+      org_workspace_id = workspace_list[workspace].get('id')
+      print("Workspace Id: "+org_workspace_id)
+      org_workspace_settings_request = requests.request("GET", tfe_url +'/api/v2/workspaces/'+org_workspace_id, headers=tfe_http_headers)
+      org_workspace_json = org_workspace_settings_request.json()
+      if "2" in str(org_workspace_settings_request.status_code):
+        org_workspace_name=org_workspace_json['data']['attributes']['name']
+        workspace_terraform_version=org_workspace_json['data']['attributes']['terraform-version']
+        print("Workspace Name: "+org_workspace_name)
+        print("Workspace Terraform Version: "+workspace_terraform_version)
+      else:
+        print("ERRRRROR2")
   else:
     print("ERRRRROR")
-
-
-for workspace in range(len(workspace_list)):
-  org_workspace_id = workspace_list[workspace].get('id')
-  print("Workspace Id: "+org_workspace_id)
-  org_workspace_settings_request = requests.request("GET", tfe_url +'/api/v2/workspaces/'+org_workspace_id, headers=tfe_http_headers)
-  org_workspace_json = org_workspace_settings_request.json()
-  if "2" in str(org_workspace_settings_request.status_code):
-    org_workspace_name=org_workspace_json['data']['attributes']['name']
-    workspace_terraform_version=org_workspace_json['data']['attributes']['terraform-version']
-    print("Workspace Name: "+org_workspace_name)
-    print("Workspace Terraform Version: "+workspace_terraform_version)
-  else:
-    print("ERRRRROR2")
